@@ -49,9 +49,12 @@ footballTeams.forEach(team => {
 });
 console.log(footballTeams);
 
-let noPointFootballTeams = footballTeams.filter(team => {
-    delete team.punti;
-    return team;
+let noPointFootballTeams = footballTeams.map(team => {
+    const {nome,falliSubiti} = team;
+    return {
+        nome:nome,
+        falliSubiti:falliSubiti,
+    };
 });
 
 console.log(noPointFootballTeams);
