@@ -56,8 +56,17 @@ let noPointFootballTeams = footballTeams.map(team => {
         falliSubiti:falliSubiti,
     };
 });
-
 console.log(noPointFootballTeams);
+// Stampo nella DOM
+const listEl = document.querySelector('ul');
+noPointFootballTeams.forEach(team => {
+    const {nome,falliSubiti} = team;
+    const markup = `<li>
+    <h5>${nome}</h5>
+    Falli subiti: ${falliSubiti}</li>`;
+    listEl.insertAdjacentHTML('beforeend',markup);
+
+})
 
 
 function randomNumb(min, max) {

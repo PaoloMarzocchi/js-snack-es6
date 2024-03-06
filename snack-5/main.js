@@ -34,10 +34,15 @@ const racingBikes = [
     }
 ];
 
+const listEl = document.querySelector('ul');
+
 let bikeMinWeight = racingBikes[0];
 
 racingBikes.forEach(bike => {
-    let {peso} = bike;
+    let {peso,nome} = bike;
+    markup = `<li><h6>${nome}</h6>
+    Peso: ${peso} kg</li>`;
+    listEl.insertAdjacentHTML('beforeend', markup)
     if (bikeMinWeight.peso > peso) {
         bikeMinWeight = bike;
     }
@@ -45,3 +50,7 @@ racingBikes.forEach(bike => {
 })
 const {nome,peso} = bikeMinWeight;
 console.log(`La bici più leggera è la ${nome} con un peso di ${peso} kg`);
+
+const resultEl = document.querySelector('h4');
+console.log(resultEl);
+resultEl.append(`La bici più leggera è la ${nome} con un peso di ${peso} kg`);
